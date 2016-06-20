@@ -1,0 +1,3 @@
+[submodule "material-foundation"]
+	path = material-foundation
+	url = https://github.com/eucalyptuss/material-foundation.git
