@@ -12,7 +12,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'class', 'avatar', 'powerschool_id', 'type'
     ];
 
     /**
@@ -23,4 +23,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Set the user's powerschool id.
+     *
+     * @param string $id
+     */
+    public function setPowerschoolIdAttribute($id)
+    {
+        $this->attributes['powerschool_id'] = empty($id) ? NULL : $id;
+    }
 }
