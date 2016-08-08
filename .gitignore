@@ -5,3 +5,9 @@ Homestead.yaml
 Homestead.json
 .env
 /.idea
+/material-foundation/css
+/material-foundation/js/material-foundation.js
+/material-foundation/.sass-cache
+.phpstorm.meta.php
+_ide_helper.php
+/public/build

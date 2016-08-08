@@ -5,3 +5,10 @@
 @import "material-foundation";
 
 @include foundation-everything;
+
+.top-bar {
+  padding: 0 1rem;
+}
+#logo {
+  height: 3.5rem;
+}
