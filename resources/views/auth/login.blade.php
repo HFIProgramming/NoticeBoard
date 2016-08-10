@@ -16,7 +16,7 @@
                 <div id="login-form" class="row column">
                     @if (count($errors))
                         <div class="alert callout">
-                            <p><i class="fi-alert"></i> Incorrect email or password.</p>
+                            <p><i class="icon icon-alert-circle-o"></i> Incorrect email or password.</p>
                         </div>
                     @endif
                     {{ csrf_field() }}
