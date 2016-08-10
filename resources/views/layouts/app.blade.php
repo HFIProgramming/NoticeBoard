@@ -5,7 +5,8 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; font-src 'self' data:">
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src 'self'; script-src 'self'; font-src 'self' data:; img-src 'self' data: ">
 
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
@@ -60,6 +61,7 @@
                             </button>
                             <div class="dropdown-pane" id="options-dropdown" data-dropdown data-auto-focus="true">
                                 <ul>
+                                    <li><a href="{{ url('/me') }}">Your profile</a></li>
                                     <li><a href="{{ url('/logout') }}">Log out</a></li>
                                     <!-- TODO actual options -->
                                 </ul>
