@@ -31,10 +31,9 @@
     <meta name="format-detection" content="telephone=no">
 
     <title>@yield('title') - NoticeBoard</title>
-    <link rel="stylesheet" href="{{ elixir('css/material-foundation.css') }}">
-    <link rel="stylesheet" href="{{ elixir('css/app.css') }}">
+    <link rel="stylesheet" href="{{ elixir('assets/css/app.css') }}">
 
-    <script src="{{ elixir('js/foundation.js') }}" async></script>
+    <script src="{{ elixir('assets/js/foundation.js') }}" async></script>
     @yield('header')
 </head>
 <body>

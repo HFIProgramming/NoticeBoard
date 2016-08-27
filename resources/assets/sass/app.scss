@@ -1,15 +1,14 @@
+@charset "UTF-8";
+
+// @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+@import "material-foundation";
+
+@include foundation-everything;
+
 .top-bar {
   padding: 0 1rem;
 }
-
 #logo {
   height: 3.5rem;
-}
-
-.form {
-  margin-top: 3rem;
-  background: white;
-  border: 1px solid #ddd;
-  border-radius: 3px;
-  padding: 1rem;
 }
