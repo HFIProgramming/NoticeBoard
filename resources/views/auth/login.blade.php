@@ -5,7 +5,7 @@
 @endsection
 
 @section('header')
-    <link rel="stylesheet" href="{{ elixir('assets/css/login.css') }}">
+    <link rel="stylesheet" href="{{ elixir('css/login.css') }}">
 @endsection
 
 @section('content')

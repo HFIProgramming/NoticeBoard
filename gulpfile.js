@@ -1,6 +1,6 @@
 var paths = {
     'foundation': 'material-foundation/',
-    'output': 'public/assets/'
+    'output': 'public'
 };
 var elixir = require('laravel-elixir');
 
@@ -16,15 +16,16 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    mix.copy(paths.foundation + 'css/material-foundation.css', paths.output + 'css');
+    mix.copy(paths.foundation + 'css/material-foundation.css', 'public/css');
+    mix.sass('app.scss');
     mix.styles('login.css');
 
-    mix.copy(paths.foundation + 'js/material-foundation.js', paths.output + 'js/foundation.js');
+    mix.copy(paths.foundation + 'js/material-foundation.js', 'public/js/foundation.js');
     
-    mix.version(['assets/css/app.css', 'assets/css/login.css', 'assets/js/foundation.js']);
+    mix.version(['css/app.css', 'css/login.css', 'css/material-foundation.css', 'js/foundation.js']);
     mix.copy(
         paths.foundation + 'bower_components/material-design-iconic-font/dist/fonts',
-        'public/build/assets/bower_components/material-design-iconic-font/dist/fonts'
+        'public/build/bower_components/material-design-iconic-font/dist/fonts'
     );
     mix.browserSync();
 });
