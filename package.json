@@ -9,6 +9,7 @@
     "laravel-elixir": "^5.0.0"
   },
   "dependencies": {
-    "jquery": "^3.0.0"
+    "jquery": "2.2.*",
+    "materialize-css": "^0.97.7"
   }
 }
