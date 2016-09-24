@@ -21,17 +21,17 @@ class CreateUsersTable extends Migration
             $table->string('grade');
             $table->string('avatar')->nullable();
             $table->string('powerschool_id')->nullable()->unique();
-            $table->string('type');
-            $table->string('created_counts'); //累计发言数
-            $table->string('identity'); // 用|分割不同身份,比如 1|2|3
+            $table->string('type'); // 数字为用户身份: 1 public, 2 admin
+            $table->string('created_counts')->default(0); //累计发言数
+            $table->string('identity'); // 用|分割不同权限,对应到assoc表单中的id
             //个人信息
-            $table->string('nickname');
+            $table->string('nickname')->nullable()->unique();
             $table->string('condition');
-            $table->text('self_intro');
-            $table->string('wechat_ID');
-            $table->string('QQ');
-            $table->string('alternative_email');
-            $table->string('phone');
+            $table->text('self_intro')->nullable()->default("一言不发才是最吼的!");
+            $table->string('wechat_ID')->unique();
+            $table->string('QQ')->nullable()->unique();
+            $table->string('alternative_email')->nullable();
+            $table->string('phone')->nullable()->unique();
             $table->rememberToken();
             $table->timestamps();
         });
@@ -44,6 +44,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::drop('users');
+        Schema::dropIfExists('users');
     }
 }

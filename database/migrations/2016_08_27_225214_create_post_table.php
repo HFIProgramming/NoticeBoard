@@ -16,8 +16,9 @@ class CreatePostTable extends Migration
             $table->increments('id');
             $table->string('author_id')->nullable();
             $table->string('type');
-            $table->string('club_post_type');  // 1 是默认
+            $table->string('club_post_type')->default(1);  // 1 是默认
             $table->longText('content');
+            $table->string('tags'); //格式 1|2|3|5, 数字为Tags id
             $table->date('created_at');
             $table->date('last_edited_at');
             $table->string('edited_counts');
@@ -35,6 +36,6 @@ class CreatePostTable extends Migration
     public function down()
     {
         //
-        Schema::drop('posts');
+        Schema::dropIfExists('posts');
     }
 }

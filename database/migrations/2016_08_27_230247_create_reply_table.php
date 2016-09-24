@@ -36,6 +36,6 @@ class CreateReplyTable extends Migration
     public function down()
     {
         //
-        Schema::drop('replys');
+        Schema::dropIfExists('replys');
     }
 }
