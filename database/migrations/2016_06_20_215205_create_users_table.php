@@ -12,7 +12,7 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('user', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->string('email')->unique();
@@ -27,7 +27,7 @@ class CreateUsersTable extends Migration
             //个人信息
             $table->string('nickname')->nullable()->unique();
             $table->string('condition');
-            $table->text('self_intro')->nullable()->default("一言不发才是最吼的!");
+            $table->text('self_intro')->nullable();
             $table->string('wechat_ID')->unique();
             $table->string('QQ')->nullable()->unique();
             $table->string('alternative_email')->nullable();
