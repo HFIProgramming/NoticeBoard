@@ -12,7 +12,7 @@ class CreateReplyTable extends Migration
      */
     public function up()
     {
-        Schema::create('reply', function (Blueprint $table) {
+        Schema::create('replies', function (Blueprint $table) {
             $table->increments('id');
             $table->string('belongs_to')->nullable();
             $table->string('type');

@@ -13,10 +13,10 @@ class CreateAssociateClubUserTable extends Migration
     public function up()
     {
         //
-        Schema::create('club_user_assoc', function (Blueprint $table) {
+        Schema::create('club_user', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('club');
-            $table->string('user');
+            $table->string('club_id');
+            $table->string('user_id');
             $table->string('level')->default(1);  //  1:成员 2:负责人 3:社长
             $table->timestamps();
         });

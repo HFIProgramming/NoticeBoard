@@ -33,4 +33,15 @@ class User extends Authenticatable
     {
         $this->attributes['powerschool_id'] = empty($id) ? NULL : $id;
     }
+
+    public function roles()
+    {
+        return $this->belongsToMany('App\Club', 'user_club', 'user_id', 'club_id');
+    }
+
+    public function posts()
+    {
+        return $this->hasMany('App\Post');
+    }
+
 }
