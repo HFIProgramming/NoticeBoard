@@ -14,7 +14,7 @@ class UserSeeder extends Seeder
         //
         DB::table('users')->delete();
 
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 1; $i < 10; $i++) {
             \App\User::create([
                 'name' => 'name' . $i,
                 'email' => $i . "@test.com",

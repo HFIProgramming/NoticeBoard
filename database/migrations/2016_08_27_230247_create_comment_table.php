@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateReplyTable extends Migration
+class CreateCommentTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,14 +12,14 @@ class CreateReplyTable extends Migration
      */
     public function up()
     {
-        Schema::create('replies', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('belongs_to')->nullable();
+            $table->string('post_id');
+            $table->string('user_id');
             $table->string('type');
             $table->longText('content');
             $table->date('last_edited_at');
             $table->string('edited_counts');
-            $table->text('tags');
             $table->string('is_hidden'); //which groups of people cannot see 格式 1|2|3|5
             $table->rememberToken();
             $table->timestamps();
@@ -34,6 +34,6 @@ class CreateReplyTable extends Migration
     public function down()
     {
         //
-        Schema::dropIfExists('replys');
+        Schema::dropIfExists('comments');
     }
 }
