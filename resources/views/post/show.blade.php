@@ -46,6 +46,10 @@
                 {!! csrf_field() !!}
                 <input type="hidden" name="post_id" value="{{ $post->id }}">
                 <div class="form-group">
+                <label>Tags</label>
+                <input type="tags" name="tags" class="form-control" style="width: 300px;">
+        </div>
+                <div class="form-group">
                     <label>Content</label>
                     <textarea name="content" id="newFormContent" class="form-control" rows="10" placeholder="Share?" required="required"></textarea>
                 </div>
@@ -62,11 +66,14 @@
         </script>
 
         <div class="conmments" style="margin-top: 100px;">
+            <div class="counts" type="hidden" value="{{$count = 1}}"></div>
             @foreach ($post->hasManyComments as $comment)
 
                 <div class="one" style="border-top: solid 20px #efefef; padding: 5px 20px;">
                     <div class="nickname" data="{{ $comment->author->name }}">
                         <h6>{{ $comment->created_at }}</h6>
+                    </div>
+                    <h6>{{$count ++}}楼</h6>
                     </div>
                     <div class="content">
                         <p style="padding: 20px;">

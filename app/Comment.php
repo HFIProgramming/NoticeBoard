@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
+    protected $fillable = ['content', 'post_id', 'club_post_type', 'tags', 'title'];
     //
     public function post()
     {

@@ -17,10 +17,11 @@ class CreatePostTable extends Migration
             $table->string('user_id');
             $table->string('title');
             $table->string('type');
+            $table->string('is_login')->default(0);
             $table->string('club_post_type')->default(1);  // 1 是默认
             $table->longText('content');
             $table->string('tags'); //格式 1|2|3|5, 数字为Tags id
-            $table->date('last_edited_at');
+            $table->date('last_edited_at')->nullable();
             $table->string('edited_counts')->nullable();
             $table->string('is_hidden')->nullable(); //which groups of people cannot see 格式 1|2|3|5
             $table->rememberToken();
