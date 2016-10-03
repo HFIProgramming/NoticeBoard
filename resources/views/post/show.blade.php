@@ -26,6 +26,11 @@
     <div id="post_author" style="text-align: right;">
         {{ $post->author->name }}
     </div>
+    @foreach ($post->tags as $tag)
+    <div id="post_tags" style="text-align: right;">
+            <h6>{{$tag->name}}</h6>
+    </div>
+    @endforeach
     <div id="content" style="margin: 20px;">
         <p>
             {{ $post->content }}

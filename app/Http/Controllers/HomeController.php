@@ -25,7 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $posts = \App\Post::all();
+        $posts = Post::with('hasManyComments','tagged')->get();
         return view('welcome')->withPosts($posts);
     }
 }

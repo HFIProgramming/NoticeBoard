@@ -15,10 +15,13 @@
                                     <h4>{{ $post->title}}</h4>
                                 </a>
                                 <h4>author: {{ $post->author->name }}</h4>
-                                <h5>tags: {{ $post->tags }}</h5>
+                                @foreach($post->tags as $tag)
+                                <h5>tags: {{ $tag->name }},</h5>
+                                    @endforeach
                             </div>
-                            <div class="body">
-                                <p>{{ $post->content }}</p>
+                            <p>创建时间: {{$post->created_at}}</p>
+                            <div class="last_action">
+                                <p>累计回复:{{$post->hasManyComments->count()}}</p>
                             </div>
                         </li>
                     @endforeach

@@ -23,5 +23,16 @@ Route::get('/register', 'Auth\AuthController@getRegister');
 Route::post('/register', 'Auth\AuthController@postRegister');
 
 //帖子...
-Route::get('post/{id}', 'PostController@showIndividualPost');
+Route::get('/post/{id}', 'PostController@showIndividualPost');
 Route::post('comment', 'PostController@getReply');
+Route::post('/post', 'PostController@createNewPost');
+Route::get('/post', 'PostController@createSite');
+
+//板块划分
+Route::get('/section', 'SectionController@showAllSections');
+Route::get('/section/{section}', 'SectionController@showIndividualSection');
+
+//个人中心
+Route::get('/profile', 'UserController@showMyself');
+Route::get('/profile/{nickname}', 'UserController@showSpecificProfile');
+

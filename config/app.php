@@ -158,6 +158,10 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /* Tags Provider
+        */
+        \Conner\Tagging\Providers\TaggingServiceProvider::class,
+
     ],
 
     /*

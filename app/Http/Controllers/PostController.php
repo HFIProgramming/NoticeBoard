@@ -18,7 +18,7 @@ class PostController extends Controller
         if (!Auth::check() && Post::where('id', $id)->value('is_login') == 1) {
             return view('login_required')->withErrors('本主题需要登录后查看');
         }
-        return view('post/show')->withPost(Post::with('hasManyComments')->find($id));
+        return view('post/show')->withPost(Post::with('hasManyComments','tagged')->find($id));
     }
 
     public function getReply(Request $request){
@@ -41,4 +41,34 @@ class PostController extends Controller
         return redirect()->back()->withInput()->withErrors('评论发表失败！');
 
     }
+
+    public function createSite(){
+        return view('post/create');
+    }
+
+    public function createNewPost(Request $request)
+    {
+        if ($user = $request->user()){
+            if (!$request->has('content')){
+                return redirect()->back()->withInput()->withErrors('内容为空!');
+            }
+            if ($post = new Post()){
+                $post->user_id = $user->id;
+                $post->content = $request->content;
+                $post->title = $request->title;
+                $post->save(); // tags need post id !
+                $post->tag($request->tags);
+                if ($post->save()) {
+                    return redirect()->back();
+                } else {
+                    $post->delete(); // 防止错误
+                }
+            }
+        } else {
+            return view('login_required')->withErrors('发表需要登录');
+        }
+        return redirect()->back()->withInput()->withErrors('帖子发表失败！');
+
+    }
+
 }

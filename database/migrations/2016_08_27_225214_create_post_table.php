@@ -16,9 +16,10 @@ class CreatePostTable extends Migration
             $table->increments('id');
             $table->string('user_id');
             $table->string('title');
-            $table->string('type');
+            $table->string('type')->default(1);
             $table->string('is_login')->default(0);
-            $table->string('club_post_type')->default(1);  // 1 是默认
+           // $table->string('tags');  no need, https://github.com/rtconner/laravel-tagging does the same job
+            $table->string('club_post_type')->default(0);  // 0 是默认
             $table->longText('content');
             $table->date('last_edited_at')->nullable();
             $table->string('edited_counts')->nullable();
