@@ -18,7 +18,8 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('class')->nullable();
-            $table->string('grade');
+            $table->string('grade'); // xx学年
+            $table->string('active')->default(0); // 0 or 1
             $table->string('avatar')->nullable();
             $table->string('powerschool_id')->nullable()->unique();
             $table->string('type'); // 数字为用户身份: 1 public, 2 admin

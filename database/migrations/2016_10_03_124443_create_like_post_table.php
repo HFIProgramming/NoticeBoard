@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateClassTable extends Migration
+class CreateLikePostTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateClassTable extends Migration
     public function up()
     {
         //
-        Schema::create('classes', function (Blueprint $table) {
+        Schema::create('like_post', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('classname')->unique();
-            $table->text('class_intro');
+            $table->string('post_id');
+            $table->string('user_id');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateClassTable extends Migration
     public function down()
     {
         //
-        Schema::dropIfExists('classes');
+        Schema::dropIfExists('like_post');
     }
 }

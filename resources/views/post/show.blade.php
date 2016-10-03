@@ -41,14 +41,11 @@
             </div>
         @endif
 
+            @can('comment', $post)
         <div id="new">
             <form action="{{ url('comment') }}" method="POST">
                 {!! csrf_field() !!}
                 <input type="hidden" name="post_id" value="{{ $post->id }}">
-                <div class="form-group">
-                <label>Tags</label>
-                <input type="tags" name="tags" class="form-control" style="width: 300px;">
-        </div>
                 <div class="form-group">
                     <label>Content</label>
                     <textarea name="content" id="newFormContent" class="form-control" rows="10" placeholder="Share?" required="required"></textarea>
@@ -56,7 +53,9 @@
                 <button type="submit" class="btn btn-lg btn-success col-lg-12">Submit</button>
             </form>
         </div>
-
+                @else
+                <h5>如需回复请先<a href=/login>登录</a></h5>
+            @endcan
         <script>
             function reply(a) {
                 var nickname = a.parentNode.parentNode.firstChild.nextSibling.getAttribute('data');
@@ -80,7 +79,7 @@
                             {{ $comment->content }}
                         </p>
                     </div>
-                    <div class="reply" style="text-align: right; padding: 5px;">
+                <div class="reply" style="text-align: right; padding: 5px;">
                         <a href="#new" onclick="reply(this);">回复</a>
                     </div>
                 </div>

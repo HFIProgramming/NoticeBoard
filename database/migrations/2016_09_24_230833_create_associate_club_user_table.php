@@ -30,6 +30,6 @@ class CreateAssociateClubUserTable extends Migration
     public function down()
     {
         //
-        Schema::dropIfExists('asscociate_club_user');
+        Schema::dropIfExists('club_user');
     }
 }
