@@ -14,7 +14,7 @@
                                 <a href="{{ url('post/'.$post->id) }}">
                                     <h4>{{ $post->title}}</h4>
                                 </a>
-                                <h4>author: {{ $post->author->name }}</h4>
+                                <h4>author: {{ $post->getAuthor->name }}</h4>
                                 @foreach($post->tags as $tag)
                                 <h5>tags: {{ $tag->name }},</h5>
                                     @endforeach
@@ -23,6 +23,10 @@
                             <div class="last_action">
                                 <p>累计回复:{{$post->hasManyComments->count()}}</p>
                             </div>
+                            @if ($post->last_user != NULL)
+                            <p>最后一次操作:{{$post->updated_at}}</p>
+                                <p>用户:{{$post->getLast_user->name}}</p>
+                                @endif
                         </li>
                     @endforeach
                 </div>

@@ -21,14 +21,14 @@
     <h1 style="text-align: center; margin-top: 50px;">{{ $post->title }}</h1>
     <hr>
     <div id="date" style="text-align: right;">
-        {{ $post->updated_at }}
+       updated at: {{ $post->updated_at }}
     </div>
     <div id="post_author" style="text-align: right;">
-        {{ $post->author->name }}
+        author:{{ $post->getAuthor->name }}
     </div>
     @foreach ($post->tags as $tag)
     <div id="post_tags" style="text-align: right;">
-            <h6>{{$tag->name}}</h6>
+            <h6>tags:{{$tag->name}}</h6>
     </div>
     @endforeach
     <div id="content" style="margin: 20px;">

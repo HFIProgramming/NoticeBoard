@@ -25,7 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $posts = Post::with('hasManyComments','tagged')->get();
+        $posts = Post::with('hasManyComments','tagged')->orderBy('updated_at', 'desc')->get();
         return view('welcome')->withPosts($posts);
     }
 }

@@ -16,10 +16,8 @@ class CreateCommentTable extends Migration
             $table->increments('id');
             $table->string('post_id');
             $table->string('user_id');
-            $table->string('type');
+            $table->string('type')->default(1);
             $table->longText('content');
-            $table->date('last_edited_at');
-            $table->string('edited_counts');
             $table->string('is_hidden'); //which groups of people cannot see 格式 1|2|3|5
             $table->rememberToken();
             $table->timestamps();

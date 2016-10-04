@@ -28,11 +28,15 @@ Route::post('comment', 'PostController@getReply');
 Route::post('/post', 'PostController@createNewPost');
 Route::get('/post', 'PostController@createSite');
 
-//板块划分
-Route::get('/section', 'SectionController@showAllSections');
-Route::get('/section/{section}', 'SectionController@showIndividualSection');
+//功能划分
+Route::get('/more', 'SectionController@showAllSections');
+Route::get('/more/{function}', 'SectionController@showSpecificFunction');
+Route::post('/more/{function}', 'SectionController@runSpecificFunction');
 
 //个人中心
 Route::get('/profile', 'UserController@showMyself');
 Route::get('/profile/{nickname}', 'UserController@showSpecificProfile');
 
+//社区
+Route::get('/clubs', 'ClubController@showAllClubs');
+Route::get('/clubs/{clubname}', 'ClubController@showSpecificClub');

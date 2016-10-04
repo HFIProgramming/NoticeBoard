@@ -23,23 +23,27 @@ class PostController extends Controller
 
     public function getReply(Request $request){
 
-        if ($user = $request->user()){
-            if (!$request->has('content')){
+        if ($user = $request->user()) {
+            if (!$request->has('content')) {
                 return redirect()->back()->withInput()->withErrors('评论为空!');
             }
-            if ($comment = Comment::create($request->all())){
+            if ($comment = new Comment()) {
                 $comment->user_id = $user->id;
-                if ($comment->save()) {
-                    return redirect()->back();
-                } else {
-                    $comment->delete(); // 防止错误
+                $comment->content = $request->content;
+                $comment->post_id = $request->post_id;
+                if (!$comment->save()) {
+                    return redirect()->back()->withInput()->withErrors('评论发表失败!');
                 }
+                $post = Post::where('id', $request->post_id)->first();
+                $post->last_user = $user->id;
+                if (!$post->save()) {
+                    return redirect()->back()->withInput()->withErrors('更新状态失败!');
+                }
+                return redirect()->back();
+            } else {
+                return view('login_required')->withErrors('回复需要登录');
             }
-        } else {
-            return view('login_required')->withErrors('回复需要登录');
         }
-        return redirect()->back()->withInput()->withErrors('评论发表失败！');
-
     }
 
     public function createSite(){

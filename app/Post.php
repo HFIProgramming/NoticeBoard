@@ -14,14 +14,14 @@ class Post extends Model
         return $this->hasMany('App\Comment', 'post_id', 'id');
     }
 
-    public function author()
+    public function getAuthor()
     {
         return $this->belongsTo('App\User', 'user_id', 'id');
     }
 
-    public function getLastComment()
+    public function getLast_user()
     {
-        return $this->hasMany('App\Comment', 'post_id', 'id');
+        return $this->belongsTo('App\User', 'last_user', 'id');
     }
 
 }
